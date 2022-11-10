@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.23)
 project(MercuryUtils)
 
+# Overwriting existing flags with our own (so we dont define NDEBUG so we still get asserts in release builds)
+# Note: bug in valgrind https://bugs.kde.org/show_bug.cgi?id=452758 can't read dwarf5 correctly so we use dwarf4
+# TODO: dwarf4 should be changed to be compiler specific
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -gdwarf-4")
+set(CMAKE_CXX_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
+
 include(FetchContent)
 
 option(BUILD_TESTING "If enabled will build all the tests" ON)
