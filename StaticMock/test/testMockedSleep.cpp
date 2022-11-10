@@ -31,7 +31,7 @@ TEST(MockedSleep, CheckMockSleepIsntCallingActualFunction)
 	ASSERT_EQ(0, Sleep(4));
 	auto after(std::chrono::steady_clock::now());
 
-	ASSERT_LT(after - now, std::chrono::seconds(1));
+	ASSERT_LT(after - now, std::chrono::seconds(3));
 }
 
 } // namespace hg
