@@ -10,7 +10,8 @@
         "CMAKE_LINKER": "gold",
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
         "CMAKE_C_COMPILER": "clang-15",
-        "CMAKE_CXX_COMPILER": "clang++-15"
+        "CMAKE_CXX_COMPILER": "clang++-15",
+        "CMAKE_CXX_FLAGS": "-Werror -Wall -Wextra -pedantic -Weverything -Wthread-safety -fPIC -stdlib=libc++"
       }
     }
   ]

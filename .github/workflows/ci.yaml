@@ -5,10 +5,6 @@ jobs:
   linux-clang:
     name: Linux Clang (libc++)
     runs-on: ubuntu-latest
-    env:
-      CC: clang-15
-      CXX: clang++-15
-      CXXFLAGS: -stdlib=libc++
     steps:
       - uses: actions/checkout@v3
       - run: |
@@ -21,4 +17,5 @@ jobs:
       - run: cmake --preset release
       - run: ninja -C cmake-build-release
       - run: ./cmake-build-release/untitled
+      - run: ctest --test-dir cmake-build-release
 

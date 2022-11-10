@@ -1,0 +1,4 @@
+# StaticMock
+
+TODO!
+
