@@ -1,0 +1,24 @@
+name: CI
+on: [push]
+
+jobs:
+  linux-clang:
+    name: Linux Clang (libc++)
+    runs-on: ubuntu-latest
+    env:
+      CC: clang-15
+      CXX: clang++-15
+      CXXFLAGS: -stdlib=libc++
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common apt-transport-https ninja
+          curl -s https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+          sudo apt-add-repository -y 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main'
+          sudo apt-get update
+          sudo apt-get install -y ninja-build clang-15 libc++-15-dev libc++abi-15-dev
+      - run: cmake --preset release
+      - run: ninja cmake-build-release
+      - run: ./cmake-build-release/untitled
+
