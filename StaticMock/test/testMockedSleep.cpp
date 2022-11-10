@@ -8,7 +8,7 @@ namespace hg {
 TEST(MockedSleep, NoMock_ThrowsError)
 {
 	ASSERT_DEATH({ Sleep(1); },
-				 ::testing::HasSubstr("Assertion failed: nullptr != *SingletonClass()"));
+				 ::testing::HasSubstr("nullptr != *SingletonClass()"));
 }
 
 TEST(MockedSleep, ExpectCall_Works)
