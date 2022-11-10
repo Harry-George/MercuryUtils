@@ -2,7 +2,6 @@
 #include <gtest/gtest.h>
 
 #include "MockSleep.h"
-#include "Sleep.h"
 
 namespace hg {
 
