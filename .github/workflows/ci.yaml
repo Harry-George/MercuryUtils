@@ -19,6 +19,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ninja-build clang-15 libc++-15-dev libc++abi-15-dev
       - run: cmake --preset release
-      - run: ninja cmake-build-release
+      - run: ninja -C cmake-build-release
       - run: ./cmake-build-release/untitled
 
